@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="5" failures="0" errors="0" time="66.485">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2026-06-26T13:35:33" time="65.49" tests="5">
+    <testcase classname=" GET /healthz returns 200" name=" GET /healthz returns 200" time="0.648">
+    </testcase>
+    <testcase classname=" GET /ready returns 200" name=" GET /ready returns 200" time="0.01">
+    </testcase>
+    <testcase classname=" GET /api/slaps returns all 6 members" name=" GET /api/slaps returns all 6 members" time="0.016">
+    </testcase>
+    <testcase classname=" POST /api/slap/Maia increments count" name=" POST /api/slap/Maia increments count" time="0.031">
+    </testcase>
+    <testcase classname=" POST /api/slap/unknown returns 400" name=" POST /api/slap/unknown returns 400" time="0.007">
+    </testcase>
+  </testsuite>
+</testsuites>
