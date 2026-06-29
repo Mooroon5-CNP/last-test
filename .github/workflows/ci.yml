@@ -12,7 +12,7 @@ jobs:
   pipeline:
     uses: Mooroon5-CNP/ci-templates/.github/workflows/pipeline.yml@main
     with:
-      app_name: "mooron5"
+      app_name: "last-test"
       app_port: "8080"
       config_repo_url: "https://github.com/Mooroon5-CNP/config-repo"
       target_cloud: "gcp"
@@ -30,13 +30,13 @@ jobs:
           token: ${{ secrets.CONFIG_REPO_TOKEN }}
       - name: Update Cloud Run image tag
         run: |
-          sed -i "s|image: europe-west9-docker.pkg.dev/cnp-terraform-500015/cnp-registry/mooron5:.*|image: europe-west9-docker.pkg.dev/cnp-terraform-500015/cnp-registry/mooron5:${{ github.sha }}|" \
-            apps/mooron5/crossplane/cloudrun-claim.yaml
+          sed -i "s|image: europe-west9-docker.pkg.dev/cnp-terraform-500015/cnp-registry/last-test:.*|image: europe-west9-docker.pkg.dev/cnp-terraform-500015/cnp-registry/last-test:${{ github.sha }}|" \
+            apps/last-test/crossplane/cloudrun-claim.yaml
           git config user.email "ci-bot@cnp"
           git config user.name "CI Bot"
-          git add apps/mooron5/crossplane/cloudrun-claim.yaml
+          git add apps/last-test/crossplane/cloudrun-claim.yaml
           git diff --staged --quiet && exit 0
-          git commit -m "ci(mooron5): cloud run → ${{ github.sha }}"
+          git commit -m "ci(last-test): cloud run → ${{ github.sha }}"
           for i in 1 2 3; do
             git pull --rebase && git push && break || sleep 5
           done
